@@ -1,0 +1,36 @@
+@startuml
+start
+
+:activate() 関数の呼び出し;
+
+:出力チャンネルの作成;
+:ロガーの初期化;
+:ClineProvider のインスタンス作成;
+:ClineProvider をサイドバーに登録;
+
+:コマンドの登録;
+fork
+    :cline.plusButtonClicked コマンドの登録;
+fork again
+    :cline.mcpButtonClicked コマンドの登録;
+fork again
+    :cline.popoutButtonClicked コマンドの登録;
+fork again
+    :cline.openInNewTab コマンドの登録;
+fork again
+    :cline.settingsButtonClicked コマンドの登録;
+fork again
+    :cline.historyButtonClicked コマンドの登録;
+fork again
+    :cline.accountLoginClicked コマンドの登録;
+end fork
+
+:URIハンドラーの登録;
+
+stop
+
+deactivate() 関数の呼び出し;
+:ログメッセージの出力;
+
+stop
+@enduml
