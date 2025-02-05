@@ -1,0 +1,27 @@
+graph TD
+    A[activate() 関数] --> B[出力チャンネルの作成]
+    A --> C[ロガーの初期化]
+    A --> D[ClineProvider の登録]
+    A --> E[コマンドの登録]
+    A --> F[URIハンドラーの登録]
+    
+    E --> E1[cline.plusButtonClicked]
+    E --> E2[cline.mcpButtonClicked]
+    E --> E3[cline.popoutButtonClicked]
+    E --> E4[cline.openInNewTab]
+    E --> E5[cline.settingsButtonClicked]
+    E --> E6[cline.historyButtonClicked]
+    E --> E7[cline.accountLoginClicked]
+    
+    E1 --> G[サイドバーにメッセージを送信]
+    E2 --> G
+    E3 --> G
+    E4 --> G
+    E5 --> G
+    E6 --> G
+    E7 --> G
+    
+    G --> H[Webview の操作]
+    
+    A --> I[deactivate() 関数]
+    I --> J[ログメッセージの出力]
