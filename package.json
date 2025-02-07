@@ -94,6 +94,12 @@
 				"command": "cline.openInNewTab",
 				"title": "Open In New Tab",
 				"category": "Cline"
+			},
+			{
+				"command": "cline.toggleVoiceRecognition",
+				"title": "音声認識の開始/停止",
+				"category": "Cline",
+				"icon": "$(unmute)"
 			}
 		],
 		"menus": {
@@ -121,6 +127,11 @@
 				{
 					"command": "cline.settingsButtonClicked",
 					"group": "navigation@5",
+					"when": "view == claude-dev.SidebarProvider"
+				},
+				{
+					"command": "cline.toggleVoiceRecognition",
+					"group": "navigation@6",
 					"when": "view == claude-dev.SidebarProvider"
 				}
 			]
@@ -161,6 +172,22 @@
 					"type": "boolean",
 					"default": true,
 					"description": "Enables extension to save checkpoints of workspace throughout the task."
+				},
+				"cline.voiceRecognition": {
+					"type": "object",
+					"properties": {
+						"voicevoxEndpoint": {
+							"type": "string",
+							"default": "http://localhost:50021",
+							"description": "VOICEVOXエンジンのエンドポイント"
+						},
+						"voicevoxSpeakerId": {
+							"type": "number",
+							"default": 1,
+							"description": "VOICEVOXの話者ID"
+						}
+					},
+					"description": "音声認識機能の設定"
 				}
 			}
 		}
